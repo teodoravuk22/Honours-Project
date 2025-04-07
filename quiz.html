@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sextortion Awareness Quiz</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; background: #f7f9fa; color: #333; }
+    h1 { text-align: center; }
+    .timer { font-size: 18px; color: #1976d2; font-weight: bold; text-align: center; margin-bottom: 20px; }
+    form { max-width: 800px; margin: 0 auto; }
+    .info-fields input { padding: 10px; margin: 10px; font-size: 16px; width: 250px; }
+    .question { margin: 20px 0; padding: 15px; background: #fff; border-left: 5px solid #4CAF50; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    textarea { width: 100%; padding: 10px; font-size: 16px; margin-top: 10px; }
+    button { background: #4CAF50; color: white; padding: 12px 24px; font-size: 16px; border: none; cursor: pointer; display: block; margin: 30px auto; }
+    button:hover { background-color: #45a049; }
+    input[type="radio"] { margin-right: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Sextortion Awareness Quiz</h1>
+  <div class="timer" id="timer">Time Elapsed: 00:00</div>
+
+  <form id="quizForm">
+    <div class="info-fields" style="text-align: center;">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="email" id="email" placeholder="Your Email" required />
+    </div>
+
+    <!-- 1 -->
+    <div class="question">
+      <p><strong>1.</strong> What best describes sextortion?</p>
+      <label><input type="radio" name="q1" value="A"> A form of online dating</label><br />
+      <label><input type="radio" name="q1" value="B"> A scam to sell fake products</label><br />
+      <label><input type="radio" name="q1" value="C"> A form of blackmail involving sexual content</label><br />
+      <label><input type="radio" name="q1" value="D"> A way to spread awareness about privacy</label>
+    </div>
+
+    <!-- 2 -->
+    <div class="question">
+      <p><strong>2.</strong> What are attacker strategies in sextortion and what are the best defences?</p>
+      <textarea name="q2" rows="4" placeholder="Explain your reasoning..."></textarea>
+    </div>
+
+    <!-- 3 -->
+    <div class="question">
+      <p><strong>3.</strong> What is a common sign of a sextortion attempt?</p>
+      <label><input type="radio" name="q3" value="A"> The sender claims to be a prince</label><br />
+      <label><input type="radio" name="q3" value="B"> You receive threats tied to private images or videos</label><br />
+      <label><input type="radio" name="q3" value="C"> A friend sends you a meme</label><br />
+      <label><input type="radio" name="q3" value="D"> An ad offering tech support</label>
+    </div>
+
+    <!-- 4 -->
+    <div class="question">
+      <p><strong>4.</strong> Which scenario most likely represents a well-crafted sextortion scam?</p>
+      <label><input type="radio" name="q4" value="A"> An email claiming your webcam was hacked and demanding bitcoin</label><br />
+      <label><input type="radio" name="q4" value="B"> An Instagram story from a friend</label><br />
+      <label><input type="radio" name="q4" value="C"> A subscription renewal alert</label><br />
+      <label><input type="radio" name="q4" value="D"> A restaurant ad in your email</label>
+    </div>
+
+    <!-- 5 -->
+    <div class="question">
+      <p><strong>5.</strong> What is one way to protect yourself from sextortion?</p>
+      <label><input type="radio" name="q5" value="A"> Avoid using the internet</label><br />
+      <label><input type="radio" name="q5" value="B"> Disable two-factor authentication</label><br />
+      <label><input type="radio" name="q5" value="C"> Keep social media accounts private and secure</label><br />
+      <label><input type="radio" name="q5" value="D"> Accept friend requests from strangers</label>
+    </div>
+
+    <!-- 6 -->
+    <div class="question">
+      <p><strong>6.</strong> Who do you think is most vulnerable to sextortion, and why?</p>
+      <textarea name="q6" rows="4" placeholder="Explain your reasoning or give an example..."></textarea>
+    </div>
+
+    <!-- 7 -->
+    <div class="question">
+      <p><strong>7.</strong> Who should you contact if you're a victim of sextortion?</p>
+      <label><input type="radio" name="q7" value="A"> A stranger on Reddit</label><br />
+      <label><input type="radio" name="q7" value="B"> Your internet provider</label><br />
+      <label><input type="radio" name="q7" value="C"> Law enforcement or a cybercrime reporting service</label><br />
+      <label><input type="radio" name="q7" value="D"> Nobody – just delete everything</label>
+    </div>
+
+    <!-- 8 -->
+    <div class="question">
+      <p><strong>8.</strong> What’s the first step you would take if you received a sextortion threat?</p>
+      <textarea name="q8" rows="4" placeholder="Describe how you would respond..."></textarea>
+    </div>
+
+    <!-- 9 -->
+    <div class="question">
+      <p><strong>9.</strong> What is an effective way to intervene as a bystander in online sextortion cases?</p>
+      <label><input type="radio" name="q9" value="A"> Contact law enforcement and share support resources anonymously</label><br />
+      <label><input type="radio" name="q9" value="B"> Spread rumors to warn others</label><br />
+      <label><input type="radio" name="q9" value="C"> Create a meme about it</label><br />
+      <label><input type="radio" name="q9" value="D"> Send the victim a threatening message</label>
+    </div>
+
+    <!-- 10 -->
+    <div class="question">
+      <p><strong>10.</strong> If you suspected a friend was being sextorted, what would you do to support them while respecting their privacy?</p>
+      <textarea name="q10" rows="4" placeholder="Offer a caring and respectful response..."></textarea>
+    </div>
+
+    <button type="submit">Submit Quiz</button>
+  </form>
+
+  <script>
+    const correctAnswers = ["C", "", "B", "A", "C", "", "C", "", "A", ""];
+
+    let secondsElapsed = 0;
+    const timerDisplay = document.getElementById("timer");
+    const interval = setInterval(() => {
+      secondsElapsed++;
+      const minutes = Math.floor(secondsElapsed / 60);
+      const seconds = secondsElapsed % 60;
+      timerDisplay.textContent = `Time Elapsed: ${minutes}:${seconds.toString().padStart(2, "0")}`;
+    }, 1000);
+
+    function downloadResultsAsCSV(data) {
+      const csvHeader = "Name,Email,Score,TimeTaken,WrongAnswers,OpenQ2,OpenQ6,OpenQ8,OpenQ10,Timestamp\\n";
+      const csvRow = `${data.name},${data.email},${data.score},${data.timeTaken},"${data.wrongAnswers.join(';')}","${data.openQ2}","${data.openQ6}","${data.openQ8}","${data.openQ10}",${data.timestamp}\\n`;
+      const blob = new Blob([csvHeader + csvRow], { type: "text/csv" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "quiz_result.csv";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+
+    document.getElementById("quizForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      clearInterval(interval);
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      if (!name || !email) {
+        alert("Please enter your name and email.");
+        return;
+      }
+
+      let score = 0;
+      let wrong = [];
+
+      for (let i = 1; i <= correctAnswers.length; i++) {
+        if (correctAnswers[i - 1] !== "") {
+          const selected = document.querySelector(`input[name="q${i}"]:checked`);
+          if (selected && selected.value === correctAnswers[i - 1]) {
+            score++;
+          } else {
+            wrong.push(i);
+          }
+        }
+      }
+
+      const minutes = Math.floor(secondsElapsed / 60);
+      const seconds = secondsElapsed % 60;
+      const timeTaken = `${minutes}m ${seconds}s`;
+
+      const quizData = {
+        name: name,
+        email: email,
+        score: score,
+        timeTaken: timeTaken,
+        wrongAnswers: wrong,
+        openQ2: document.querySelector('textarea[name="q2"]').value.trim(),
+        openQ6: document.querySelector('textarea[name="q6"]').value.trim(),
+        openQ8: document.querySelector('textarea[name="q8"]').value.trim(),
+        openQ10: document.querySelector('textarea[name="q10"]').value.trim(),
+        timestamp: new Date().toISOString()
+      };
+
+      downloadResultsAsCSV(quizData);
+
+      setTimeout(() => {
+        window.location.href = "instructions.html";
+      }, 500);
+    });
+  </script>
+</body>
+</html>
