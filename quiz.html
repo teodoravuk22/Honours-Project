@@ -3,100 +3,131 @@
 <head>
   <meta charset="UTF-8" />
   <title>Sextortion Awareness Quiz</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; background: #f7f9fa; color: #333; }
+    h1 { text-align: center; }
+    .timer { font-size: 18px; color: #1976d2; font-weight: bold; text-align: center; margin-bottom: 20px; }
+    form { max-width: 800px; margin: 0 auto; }
+    .info-fields input { padding: 10px; margin: 10px; font-size: 16px; width: 250px; }
+    .question { margin: 20px 0; padding: 15px; background: #fff; border-left: 5px solid #4CAF50; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    textarea { width: 100%; padding: 10px; font-size: 16px; margin-top: 10px; }
+    button { background: #4CAF50; color: white; padding: 12px 24px; font-size: 16px; border: none; cursor: pointer; display: block; margin: 30px auto; }
+    button:hover { background-color: #45a049; }
+    input[type="radio"] { margin-right: 10px; }
+  </style>
 </head>
 <body>
   <h1>Sextortion Awareness Quiz</h1>
-
-  <div id="timer">Time Elapsed: 0m 0s</div>
+  <div class="timer" id="timer">Time Elapsed: 00:00</div>
 
   <form id="quizForm">
-    <label for="name">Name:</label><br />
-    <input type="text" id="name" name="name" required /><br /><br />
+    <div class="info-fields" style="text-align: center;">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="email" id="email" placeholder="Your Email" required />
+    </div>
 
-    <label for="email">Email:</label><br />
-    <input type="email" id="email" name="email" required /><br /><br />
+  <!-- 1 -->
+  <div class="question">
+    <p><strong>1.</strong> Which characteristic most accurately distinguishes sextortion from other forms of blackmail?</p>
+    <label><input type="radio" name="q1" value="A"> It typically involves legally obtained evidence</label><br />
+    <label><input type="radio" name="q1" value="B"> It usually targets public figures for financial gain</label><br />
+    <label><input type="radio" name="q1" value="C"> It exploits digital intimacy and personal vulnerability</label><br />
+    <label><input type="radio" name="q1" value="D"> It’s mostly carried out by organized crime groups</label>
+  </div>
 
-    <!-- Q1 (Harder) -->
-    <p>1. Which characteristic most accurately distinguishes sextortion from other forms of blackmail?</p>
-    <input type="radio" name="q1" value="A" /> It typically involves legally obtained evidence<br />
-    <input type="radio" name="q1" value="B" /> It usually targets public figures for financial gain<br />
-    <input type="radio" name="q1" value="C" /> It exploits digital intimacy and personal vulnerability<br />
-    <input type="radio" name="q1" value="D" /> It’s mostly carried out by organized crime groups<br /><br />
+    <!-- 2 -->
+    <div class="question">
+      <p><strong>2.</strong> What are attacker strategies in sextortion and what are the best defences?</p>
+      <textarea name="q2" rows="4" placeholder="Explain your reasoning..."></textarea>
+    </div>
 
-    <!-- Q2 (Open) -->
-    <p>2. Why might someone hesitate to report sextortion?</p>
-    <textarea name="q2" required></textarea><br /><br />
+  <!-- 3 -->
+  <div class="question">
+    <p><strong>3.</strong> Which message most strongly suggests a potential sextortion threat?</p>
+    <label><input type="radio" name="q3" value="A"> “We noticed suspicious activity on your account. Please reset your password.”</label><br />
+    <label><input type="radio" name="q3" value="B"> “We have access to your camera and will share your footage unless you pay.”</label><br />
+    <label><input type="radio" name="q3" value="C"> “Congratulations, you’ve been selected for a gift card giveaway.”</label><br />
+    <label><input type="radio" name="q3" value="D"> “Your subscription is set to renew tomorrow. Click here to manage settings.”</label>
+  </div>
 
-    <!-- Q3 (Harder) -->
-    <p>3. Which message most strongly suggests a potential sextortion threat?</p>
-    <input type="radio" name="q3" value="A" /> “We noticed suspicious activity…”<br />
-    <input type="radio" name="q3" value="B" /> “We have access to your camera…”<br />
-    <input type="radio" name="q3" value="C" /> “You’ve won a gift card!”<br />
-    <input type="radio" name="q3" value="D" /> “Your subscription will renew…”<br /><br />
+    <!-- 4 -->
+    <div class="question">
+      <p><strong>4.</strong> Which scenario most likely represents a well-crafted sextortion scam?</p>
+      <label><input type="radio" name="q4" value="A"> An email claiming your webcam was hacked and demanding bitcoin</label><br />
+      <label><input type="radio" name="q4" value="B"> An Instagram story from a friend</label><br />
+      <label><input type="radio" name="q4" value="C"> A subscription renewal alert</label><br />
+      <label><input type="radio" name="q4" value="D"> A restaurant ad in your email</label>
+    </div>
 
-    <!-- Q4 -->
-    <p>4. What kind of language do scammers often use in sextortion?</p>
-    <textarea name="q4" required></textarea><br /><br />
+  <!-- 5 -->
+  <div class="question">
+    <p><strong>5.</strong> Which of these practices most effectively reduces the risk of being targeted in a sextortion scheme?</p>
+    <label><input type="radio" name="q5" value="A"> Reusing passwords on secure websites only</label><br />
+    <label><input type="radio" name="q5" value="B"> Disabling location services when online</label><br />
+    <label><input type="radio" name="q5" value="C"> Avoiding unknown links and verifying sources before clicking</label><br />
+    <label><input type="radio" name="q5" value="D"> Sharing private content through encrypted apps only</label>
+  </div>
+  
+  <!-- 6 -->
+  <div class="question">
+    <p><strong>6.</strong> What is a sound strategy to minimize the chances of your digital content being misused?</p>
+    <label><input type="radio" name="q6" value="A"> Storing files in shared drives with password protection</label><br />
+    <label><input type="radio" name="q6" value="B"> Allowing content access only to trusted users and reviewing privacy settings regularly</label><br />
+    <label><input type="radio" name="q6" value="C"> Backing up personal files on cloud platforms for recovery purposes</label><br />
+    <label><input type="radio" name="q6" value="D"> Using antivirus software to block malicious pop-ups</label>
+  </div>
+  
+  <!-- 7 -->
+  <div class="question">
+    <p><strong>7.</strong> In a sextortion case, which of the following would be the most reliable source of support and intervention?</p>
+    <label><input type="radio" name="q7" value="A"> Classmates who have been through similar experiences</label><br />
+    <label><input type="radio" name="q7" value="B"> Online support forums with anonymous contributors</label><br />
+    <label><input type="radio" name="q7" value="C"> Verified crisis response organizations or official reporting agencies</label><br />
+    <label><input type="radio" name="q7" value="D"> Influencers who advocate for mental health</label>
+  </div>
 
-    <!-- Q5 (Harder) -->
-    <p>5. Which of these practices most effectively reduces the risk of being targeted in a sextortion scheme?</p>
-    <input type="radio" name="q5" value="A" /> Reusing passwords<br />
-    <input type="radio" name="q5" value="B" /> Disabling location services<br />
-    <input type="radio" name="q5" value="C" /> Avoiding suspicious links<br />
-    <input type="radio" name="q5" value="D" /> Using encrypted apps<br /><br />
+    <!-- 8 -->
+    <div class="question">
+      <p><strong>8.</strong> What’s the first step you would take if you received a sextortion threat?</p>
+      <textarea name="q8" rows="4" placeholder="Describe how you would respond..."></textarea>
+    </div>
 
-    <!-- Q6 (Harder) -->
-    <p>6. What is a sound strategy to minimize misuse of digital content?</p>
-    <input type="radio" name="q6" value="A" /> Shared drives with passwords<br />
-    <input type="radio" name="q6" value="B" /> Review privacy settings<br />
-    <input type="radio" name="q6" value="C" /> Cloud backups<br />
-    <input type="radio" name="q6" value="D" /> Antivirus software<br /><br />
+  <!-- 9 -->
+  <div class="question">
+    <p><strong>9.</strong> When observing a potential sextortion case, which action would most likely escalate harm or perpetuate stigma?</p>
+    <label><input type="radio" name="q9" value="A"> Informing authorities through an anonymous tip</label><br />
+    <label><input type="radio" name="q9" value="B"> Offering the victim emotional support in private</label><br />
+    <label><input type="radio" name="q9" value="C"> Publicly commenting on the situation with humor or sarcasm</label><br />
+    <label><input type="radio" name="q9" value="D"> Sharing online safety resources with the individual</label>
+  </div>
 
-    <!-- Q7 (Harder) -->
-    <p>7. Who is most reliable for support in a sextortion case?</p>
-    <input type="radio" name="q7" value="A" /> Classmates<br />
-    <input type="radio" name="q7" value="B" /> Anonymous forums<br />
-    <input type="radio" name="q7" value="C" /> Official reporting agencies<br />
-    <input type="radio" name="q7" value="D" /> Mental health influencers<br /><br />
+    <!-- 10 -->
+    <div class="question">
+      <p><strong>10.</strong> If you suspected a friend was being sextorted, what would you do to support them while respecting their privacy?</p>
+      <textarea name="q10" rows="4" placeholder="Offer a caring and respectful response..."></textarea>
+    </div>
 
-    <!-- Q8 -->
-    <p>8. What would make reporting sextortion feel safer?</p>
-    <textarea name="q8" required></textarea><br /><br />
-
-    <!-- Q9 (Harder) -->
-    <p>9. Which action would most likely escalate harm in a sextortion case?</p>
-    <input type="radio" name="q9" value="A" /> Anonymous report<br />
-    <input type="radio" name="q9" value="B" /> Private support<br />
-    <input type="radio" name="q9" value="C" /> Public sarcasm<br />
-    <input type="radio" name="q9" value="D" /> Sharing resources<br /><br />
-
-    <!-- Q10 -->
-    <p>10. How can someone help a peer without making things worse?</p>
-    <textarea name="q10" required></textarea><br /><br />
-
-    <input type="submit" value="Submit Quiz" />
+    <button type="submit">Submit Quiz</button>
   </form>
 
   <script>
-    let minutes = 0;
-    let seconds = 0;
-    const timer = document.getElementById("timer");
+    const correctAnswers = ["C", "", "B", "", "C", "B", "C", "", "C", ""];
 
-    setInterval(() => {
-      seconds++;
-      if (seconds >= 60) {
-        minutes++;
-        seconds = 0;
-      }
-      timer.textContent = `Time Elapsed: ${minutes}m ${seconds}s`;
+
+    let secondsElapsed = 0;
+    const timerDisplay = document.getElementById("timer");
+    const interval = setInterval(() => {
+      secondsElapsed++;
+      const minutes = Math.floor(secondsElapsed / 60);
+      const seconds = secondsElapsed % 60;
+      timerDisplay.textContent = `Time Elapsed: ${minutes}:${seconds.toString().padStart(2, "0")}`;
     }, 1000);
 
-    function downloadCSV(data) {
-      const csvHeader = "Name,Email,Score,TimeTaken,WrongAnswers,Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10,Timestamp\\n";
-      const csvRow = `${data.name},${data.email},${data.score},${data.time},"${data.wrong.join(';')}",` +
-        `"${data.q1}","${data.q2}","${data.q3}","${data.q4}","${data.q5}","${data.q6}","${data.q7}","${data.q8}","${data.q9}","${data.q10}",${data.timestamp}\\n`;
-
+    function downloadResultsAsCSV(data) {
+      const csvHeader = "Name,Email,Score,TimeTaken,WrongAnswers,Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10,Timestamp\n";
+      const csvRow = `${data.name},${data.email},${data.score},${data.timeTaken},"${data.wrongAnswers.join(';')}",` +
+        `"${data.q1}","${data.q2}","${data.q3}","${data.q4}","${data.q5}","${data.q6}","${data.q7}","${data.q8}","${data.q9}","${data.q10}",${data.timestamp}\n`;
+    
       const blob = new Blob([csvHeader + csvRow], { type: "text/csv" });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
@@ -109,50 +140,58 @@
 
     document.getElementById("quizForm").addEventListener("submit", function (e) {
       e.preventDefault();
-
-      const correctAnswers = ["C", "", "B", "", "C", "B", "C", "", "C", ""];
-      let score = 0;
-      let wrong = [];
-
-      for (let i = 1; i <= 10; i++) {
-        const input = document.querySelector(`input[name="q${i}"]:checked`) || document.querySelector(`textarea[name="q${i}"]`);
-        const val = input ? input.value.trim() : "";
-        if (correctAnswers[i - 1] && val === correctAnswers[i - 1]) {
-          score++;
-        } else if (correctAnswers[i - 1] !== "") {
-          wrong.push(i);
-        }
-      }
+      clearInterval(interval);
 
       const name = document.getElementById("name").value.trim();
       const email = document.getElementById("email").value.trim();
+      if (!name || !email) {
+        alert("Please enter your name and email.");
+        return;
+      }
+
+      let score = 0;
+      let wrong = [];
+
+      for (let i = 1; i <= correctAnswers.length; i++) {
+        if (correctAnswers[i - 1] !== "") {
+          const selected = document.querySelector(`input[name="q${i}"]:checked`);
+          if (selected && selected.value === correctAnswers[i - 1]) {
+            score++;
+          } else {
+            wrong.push(i);
+          }
+        }
+      }
+
+      const minutes = Math.floor(secondsElapsed / 60);
+      const seconds = secondsElapsed % 60;
       const timeTaken = `${minutes}m ${seconds}s`;
-      const now = new Date().toISOString();
 
       const quizData = {
-        name,
-        email,
-        score,
-        time: timeTaken,
-        wrong,
+        name: name,
+        email: email,
+        score: score,
+        timeTaken: timeTaken,
+        wrongAnswers: wrong,
         q1: document.querySelector('input[name="q1"]:checked')?.nextSibling.textContent.trim() || "",
         q2: document.querySelector('textarea[name="q2"]').value.trim(),
         q3: document.querySelector('input[name="q3"]:checked')?.nextSibling.textContent.trim() || "",
-        q4: document.querySelector('textarea[name="q4"]').value.trim(),
+        q4: document.querySelector('input[name="q4"]:checked')?.nextSibling.textContent.trim() || "",
         q5: document.querySelector('input[name="q5"]:checked')?.nextSibling.textContent.trim() || "",
-        q6: document.querySelector('input[name="q6"]:checked')?.nextSibling.textContent.trim() || "",
+        q6: document.querySelector('textarea[name="q6"]')?.value.trim() || "",
         q7: document.querySelector('input[name="q7"]:checked')?.nextSibling.textContent.trim() || "",
-        q8: document.querySelector('textarea[name="q8"]').value.trim(),
+        q8: document.querySelector('textarea[name="q8"]')?.value.trim() || "",
         q9: document.querySelector('input[name="q9"]:checked')?.nextSibling.textContent.trim() || "",
-        q10: document.querySelector('textarea[name="q10"]').value.trim(),
-        timestamp: now
+        q10: document.querySelector('textarea[name="q10"]')?.value.trim() || "",
+        timestamp: new Date().toISOString()
       };
+      
 
-      downloadCSV(quizData);
+      downloadResultsAsCSV(quizData);
 
-      const encodedName = encodeURIComponent(name);
-      const encodedTime = encodeURIComponent(timeTaken);
-      window.location.href = `instructions.html?name=${encodedName}&score=${score}&time=${encodedTime}&wrong=${wrong.join(",")}`;
+      setTimeout(() => {
+        window.location.href = "instructions.html";
+      }, 500);
     });
   </script>
 </body>
