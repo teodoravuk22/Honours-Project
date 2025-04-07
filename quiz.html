@@ -119,18 +119,20 @@
       timerDisplay.textContent = `Time Elapsed: ${minutes}:${seconds.toString().padStart(2, "0")}`;
     }, 1000);
 
-    function downloadResultsAsCSV(data) {
-      const csvHeader = "Name,Email,Score,TimeTaken,WrongAnswers,OpenQ2,OpenQ6,OpenQ8,OpenQ10,Timestamp\\n";
-      const csvRow = `${data.name},${data.email},${data.score},${data.timeTaken},"${data.wrongAnswers.join(';')}","${data.openQ2}","${data.openQ6}","${data.openQ8}","${data.openQ10}",${data.timestamp}\\n`;
-      const blob = new Blob([csvHeader + csvRow], { type: "text/csv" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "quiz_result.csv";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-    }
+function downloadResultsAsCSV(data) {
+  const csvHeader = "Name,Email,Score,TimeTaken,WrongAnswers,Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10,Timestamp\n";
+  const csvRow = `${data.name},${data.email},${data.score},${data.timeTaken},"${data.wrongAnswers.join(';')}",` +
+    `"${data.q1}","${data.q2}","${data.q3}","${data.q4}","${data.q5}","${data.q6}","${data.q7}","${data.q8}","${data.q9}","${data.q10}",${data.timestamp}\n`;
+
+  const blob = new Blob([csvHeader + csvRow], { type: "text/csv" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "quiz_result.csv";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
 
     document.getElementById("quizForm").addEventListener("submit", function (e) {
       e.preventDefault();
